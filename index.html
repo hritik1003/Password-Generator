@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .active{
+            visibility: visible;
+        }
+        .slider::-webkit-slider-thumb{
+            appearance: none;
+            transition: 100ms;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient-to-bl from-slate-300 to-white w-[100vw] h-[100vh] overflow-x-hidden container flex flex-col justify-center items-center">
+        <div class="card bg-purple-200 p-[10px] w-[20%] flex flex-col gap-3 justify-center items-center">
+            <h1 class="font-bold mb-[2%]"> Password Generator</h1>
+            <div class="h-[auto] w-[100%] display-container flex justify-center">
+                <input readonly placeholder="Password" class=" py-[2px] px-[4px] cursor-default display w-[80%] border-black border-1 rounded-sm " data-passwordDisplay>
+                <button data-copy class="relative">
+                    <span class="rounded-lg collapse absolute text-xs border-2 border-opacity-5 border-blue-500 leading-3 w-[100px] -top-7 left-1 bg-gray-300 p-[6px]" data-copyMsg></span>
+                    <i class="absolute fa-solid fa-clone top-1 -right-6 "></i>
+                </button>
+            </div>
+
+            <div class="input-container flex flex-col">
+                <div class="length-container flex justify-between">
+                    <p>Password Length</p>
+                    <div class="data-lengthNumber">0</div>
+                </div>
+                <input type="range" min="1" max="20" class=" cursor-pointer w-[100%] rounded-[1rem] h-[0.75rem] bg-white slider self-center m-[3px] mt-[8px]" step="1" datalengthSlider>
+                <div>
+                    <input type="checkbox" name="" id="uppercase">
+                    <label for="uppercase">Includes Uppercase letters</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="" id="lowercase">
+                    <label for="lowercase">Includes Lowercase letters</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="" id="numbers">
+                    <label for="numbers">Includes Numbers</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="" id="symbols">
+                    <label for="symbols">Includes Symbols</label>
+                </div>
+
+                <div class="strength-container mt-[4px] flex justify-between">
+                    <p>Strength</p>
+                    <div data-indicator class="w-[20px] drop-shadow-2xl h-[20px] rounded-[50%] bg-gray-500"></div>
+                </div>
+
+                <button class="generateButton mt-[12px] border-2 border-slate-200 rounded-md bg-slate-300">
+                    Generate Password
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
